@@ -1,16 +1,16 @@
 package com.nmittal.mazeapp.service;
 
-import java.util.List;
+import java.util.Set;
 
+import com.nmittal.maze.Block;
+import com.nmittal.maze.IMaze;
 import com.nmittal.mazeapp.domain.SolutionAlgorithms;
-import com.tr.maze.Block;
-import com.tr.maze.IMaze;
 
 public interface IMazeService {
 
 	IMaze getMaze();
 
-	List<Block> solveMaze(SolutionAlgorithms algorithm);
+	Set<Block> solveMaze(SolutionAlgorithms algorithm);
 
 	SolutionAlgorithms[] getAvailableAlgorithms();
 

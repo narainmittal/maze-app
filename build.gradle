@@ -33,4 +33,5 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile("com.nmittal:maze:${mazeVersion}")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	testCompile('com.nmittal:maze:${mazeVersion}')
 }

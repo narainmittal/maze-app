@@ -1,13 +1,15 @@
 package com.nmittal.mazeapp.service;
 
-import java.util.List;
+import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
+import com.nmittal.maze.Block;
+import com.nmittal.maze.IMaze;
+import com.nmittal.maze.IMazeSolver;
+import com.nmittal.maze.MazeBuilder;
 import com.nmittal.mazeapp.domain.SolutionAlgorithms;
-import com.tr.maze.Block;
-import com.tr.maze.IMaze;
-import com.tr.maze.MazeBuilder;
+import com.nmittal.mazeapp.util.SolutionFactory;
 
 @Service
 public class MazeService implements IMazeService {
@@ -23,14 +25,18 @@ public class MazeService implements IMazeService {
 	}
 
 	@Override
-	public List<Block> solveMaze(SolutionAlgorithms algorithm) {
-		// TODO Auto-generated method stub
+	public Set<Block> solveMaze(SolutionAlgorithms algorithm) {
+		IMazeSolver solver = SolutionFactory.getMazeSolver(algorithm, getMaze());
+		boolean solutionAvailable = solver.solve();
+		if (solutionAvailable) {
+			return solver.getSolutionPath();
+		}
 		return null;
 	}
 
 	@Override
 	public SolutionAlgorithms[] getAvailableAlgorithms() {
-		// TODO Auto-generated method stub
+
 		return SolutionAlgorithms.values();
 	}
 
