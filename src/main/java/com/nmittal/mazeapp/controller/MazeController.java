@@ -9,14 +9,22 @@ import com.nmittal.maze.IMaze;
 import com.nmittal.mazeapp.service.IMazeService;
 
 @RestController
+@RequestMapping("/maze")
 public class MazeController {
 
 	@Autowired
 	private IMazeService mazeService;
 
-	@RequestMapping(value = "/maze", method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)
 	public IMaze getMazeDefinition() {
-		IMaze maze = mazeService.getMaze();
-		return maze;
+		return mazeService.getMaze();
+
 	}
+
+	// TODO: remove
+	@RequestMapping(value = "/some-error", method = RequestMethod.GET)
+	public IMaze getMazeError() throws Exception {
+		throw new Exception("maze-error");
+	}
+
 }
