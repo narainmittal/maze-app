@@ -2,6 +2,8 @@ package com.nmittal.mazeapp.service;
 
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.nmittal.maze.Block;
@@ -14,11 +16,14 @@ import com.nmittal.mazeapp.util.SolutionFactory;
 @Service
 public class MazeService implements IMazeService {
 
+	private static final Logger log = LoggerFactory.getLogger(MazeService.class);
+
 	private IMaze localMaze;
 
 	@Override
 	public IMaze getMaze() {
 		if (null == localMaze) {
+			log.info("Initializing Maze...");
 			initializeMaze();
 		}
 		return localMaze;

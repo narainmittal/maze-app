@@ -17,7 +17,7 @@ public class MazeErrorHandler {
 	@ExceptionHandler(value = { MissingServletRequestParameterException.class, MazeException.class })
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public @ResponseBody ApiError handleInvalidArguments(Exception e) {
-		log.error("Invalid Arguments errro occured " + e);
+		log.error("Invalid Arguments found " + e);
 		return new ApiError(HttpStatus.BAD_REQUEST.value(), e.getMessage());
 	}
 

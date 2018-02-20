@@ -21,10 +21,4 @@ public class MazeController {
 
 	}
 
-	// TODO: remove
-	@RequestMapping(value = "/some-error", method = RequestMethod.GET)
-	public IMaze getMazeError() throws Exception {
-		throw new Exception("maze-error");
-	}
-
 }
