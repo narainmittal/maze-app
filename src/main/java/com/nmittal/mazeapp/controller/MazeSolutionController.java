@@ -4,6 +4,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,10 +28,11 @@ public class MazeSolutionController {
 
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
-	public Set<Block> solveMaze(@RequestParam(name = "algorithm", required = true) String algorithm) {
+	@RequestMapping(value = "/{id}/solve", method = RequestMethod.GET)
+	public Set<Block> solveMaze(@PathVariable("id") long mazeId,
+			@RequestParam(name = "algorithm", required = true) String algorithm) {
 		validate(algorithm);
-		return mazeService.solveMaze(SolutionAlgorithms.valueOf(algorithm));
+		return mazeService.solveMaze(mazeId, SolutionAlgorithms.valueOf(algorithm));
 
 	}
 

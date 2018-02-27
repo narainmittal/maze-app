@@ -1,6 +1,7 @@
 package com.nmittal.mazeapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,9 +16,9 @@ public class MazeController {
 	@Autowired
 	private IMazeService mazeService;
 
-	@RequestMapping(method = RequestMethod.GET)
-	public IMaze getMazeDefinition() {
-		return mazeService.getMaze();
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public IMaze getMazeDefinition(@PathVariable("id") long mazeId) {
+		return mazeService.getMaze(mazeId);
 
 	}
 

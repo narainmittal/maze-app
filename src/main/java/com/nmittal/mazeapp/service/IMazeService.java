@@ -8,9 +8,9 @@ import com.nmittal.mazeapp.domain.SolutionAlgorithms;
 
 public interface IMazeService {
 
-	IMaze getMaze();
+	IMaze getMaze(long mazeId);
 
-	Set<Block> solveMaze(SolutionAlgorithms algorithm);
+	Set<Block> solveMaze(long mazeId, SolutionAlgorithms algorithm);
 
 	SolutionAlgorithms[] getAvailableAlgorithms();
 

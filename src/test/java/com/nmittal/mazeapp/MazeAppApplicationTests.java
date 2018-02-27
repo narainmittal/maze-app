@@ -22,6 +22,13 @@ public class MazeAppApplicationTests {
 	@Autowired
 	private TestRestTemplate restTemplate;
 
+	@SuppressWarnings("unchecked")
+	@Test
+	public void testMazeGet() {
+		Map<String, Object> maze = restTemplate.getForObject("/maze/0", Map.class);
+		assertThat(maze).containsKeys("blocks", "start", "end");
+	}
+
 	@Test
 	public void testMazeAlgorithmList() throws JSONException {
 		String obj = restTemplate.getForObject("/maze-solution/algorithms", String.class);
@@ -29,28 +36,23 @@ public class MazeAppApplicationTests {
 		assertThat(obj).isEqualToIgnoringWhitespace(expected);
 	}
 
-	@SuppressWarnings("unchecked")
-	@Test
-	public void testMazeGet() {
-		Map<String, Object> maze = restTemplate.getForObject("/maze", Map.class);
-		assertThat(maze).containsKeys("blocks", "start", "end");
-	}
-
 	@Test
 	public void testMazeSolveWithoutAlgorithm() {
-		ResponseEntity<String> response = restTemplate.getForEntity("/maze-solution", String.class);
+		ResponseEntity<String> response = restTemplate.getForEntity("/maze-solution/0/solve", String.class);
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
 	}
 
 	@Test
 	public void testMazeSolveWithInvalidAlgorithm() {
-		ResponseEntity<String> response = restTemplate.getForEntity("/maze-solution?algorithm=ABC", String.class);
+		ResponseEntity<String> response = restTemplate.getForEntity("/maze-solution/0/solve?algorithm=ABC",
+				String.class);
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
 	}
 
 	@Test
 	public void testMazeSolveWithAlgorithm() {
-		ResponseEntity<String> response = restTemplate.getForEntity("/maze-solution?algorithm=DFS", String.class);
+		ResponseEntity<String> response = restTemplate.getForEntity("/maze-solution/0/solve?algorithm=DFS",
+				String.class);
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 		assertThat(response.getBody()).isNotEmpty();
 	}
