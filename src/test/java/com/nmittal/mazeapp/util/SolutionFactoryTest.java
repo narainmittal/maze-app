@@ -1,8 +1,6 @@
 package com.nmittal.mazeapp.util;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-
+import org.assertj.core.api.SoftAssertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,12 +23,18 @@ public class SolutionFactoryTest {
 
 		IMaze maze = new Maze(null, null, null);
 
-		assertThat(SolutionFactory.getMazeSolver(SolutionAlgorithms.BFS, maze)).isInstanceOf(MazeSolverBfs.class);
+		SoftAssertions softly = new SoftAssertions();
 
-		assertThat(SolutionFactory.getMazeSolver(SolutionAlgorithms.DFS, maze)).isInstanceOf(MazeSolverDfs.class);
+		softly.assertThat(SolutionFactory.getMazeSolver(SolutionAlgorithms.BFS, maze))
+				.isInstanceOf(MazeSolverBfs.class);
 
-		assertThatThrownBy(() -> SolutionFactory.getMazeSolver(null, maze)).isInstanceOf(MazeException.class)
+		softly.assertThat(SolutionFactory.getMazeSolver(SolutionAlgorithms.DFS, maze))
+				.isInstanceOf(MazeSolverDfs.class);
+
+		softly.assertThatThrownBy(() -> SolutionFactory.getMazeSolver(null, maze)).isInstanceOf(MazeException.class)
 				.hasMessage("Invalid value for algorithm");
+
+		softly.assertAll();
 	}
 
 }
