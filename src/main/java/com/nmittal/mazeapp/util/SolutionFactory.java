@@ -2,10 +2,10 @@ package com.nmittal.mazeapp.util;
 
 import java.util.Optional;
 
-import com.nmittal.maze.IMaze;
-import com.nmittal.maze.IMazeSolver;
-import com.nmittal.maze.MazeSolverBfs;
-import com.nmittal.maze.MazeSolverDfs;
+import com.nmittal.maze.domain.IMaze;
+import com.nmittal.maze.solve.IMazeSolver;
+import com.nmittal.maze.solve.MazeSolverBfs;
+import com.nmittal.maze.solve.MazeSolverDfs;
 import com.nmittal.mazeapp.domain.SolutionAlgorithms;
 import com.nmittal.mazeapp.error.MazeException;
 

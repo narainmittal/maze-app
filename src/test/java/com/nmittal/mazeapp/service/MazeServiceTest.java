@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.nmittal.maze.MazeBuilder;
+import com.nmittal.maze.util.MazeBuilder;
 import com.nmittal.mazeapp.dao.IMazeDao;
 import com.nmittal.mazeapp.domain.SolutionAlgorithms;
 import com.nmittal.mazeapp.error.MazeException;

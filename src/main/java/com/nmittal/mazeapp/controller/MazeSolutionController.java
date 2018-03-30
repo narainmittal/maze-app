@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nmittal.maze.Block;
+import com.nmittal.maze.domain.Block;
 import com.nmittal.mazeapp.domain.SolutionAlgorithms;
 import com.nmittal.mazeapp.error.MazeException;
 import com.nmittal.mazeapp.service.IMazeService;

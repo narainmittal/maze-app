@@ -8,9 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.nmittal.maze.Block;
-import com.nmittal.maze.IMaze;
-import com.nmittal.maze.IMazeSolver;
+import com.nmittal.maze.domain.Block;
+import com.nmittal.maze.domain.IMaze;
+import com.nmittal.maze.solve.IMazeSolver;
 import com.nmittal.mazeapp.dao.IMazeDao;
 import com.nmittal.mazeapp.domain.SolutionAlgorithms;
 import com.nmittal.mazeapp.error.MazeException;

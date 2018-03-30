@@ -1,7 +1,7 @@
 buildscript {
 	ext {
 		springBootVersion = '1.5.10.RELEASE'
-		mazeVersion = '1.1.0'
+		mazeVersion = '1.2.0'
 	}
 	repositories {
 		mavenCentral()
@@ -19,7 +19,7 @@ apply plugin: 'org.springframework.boot'
 
 
 group = 'com.nmittal'
-version = '0.0.1-SNAPSHOT'
+version = '1.0.0'
 sourceCompatibility = 1.8
 
 repositories {

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nmittal.maze.IMaze;
+import com.nmittal.maze.domain.IMaze;
 import com.nmittal.mazeapp.service.IMazeService;
 
 @RestController

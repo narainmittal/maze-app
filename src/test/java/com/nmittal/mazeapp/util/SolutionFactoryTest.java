@@ -7,10 +7,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.nmittal.maze.IMaze;
-import com.nmittal.maze.Maze;
-import com.nmittal.maze.MazeSolverBfs;
-import com.nmittal.maze.MazeSolverDfs;
+import com.nmittal.maze.domain.IMaze;
+import com.nmittal.maze.domain.Maze;
+import com.nmittal.maze.solve.MazeSolverBfs;
+import com.nmittal.maze.solve.MazeSolverDfs;
 import com.nmittal.mazeapp.domain.SolutionAlgorithms;
 import com.nmittal.mazeapp.error.MazeException;
 
