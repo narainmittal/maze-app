@@ -15,17 +15,20 @@ public class LocalMazeDao implements IMazeDao {
 
 	private IMaze localMaze;
 
+	private static final int DEFULT_GRID = 20;
+
 	@Override
-	public IMaze createMaze() {
+	public IMaze createMaze(int rows, int cols) {
 		IMazeGenerator generator = new MazeGeneratorRecursive();
-		return generator.generateMaze(20, 20);
+		localMaze = generator.generateMaze(rows, cols);
+		return localMaze;
 	}
 
 	@Override
 	public IMaze getMaze(long mazeId) {
 		if (null == localMaze) {
-			log.info("Creating Maze...");
-			localMaze = createMaze();
+			log.info("Creating default 20*20 Maze...");
+			localMaze = createMaze(DEFULT_GRID, DEFULT_GRID);
 		}
 		return localMaze;
 	}

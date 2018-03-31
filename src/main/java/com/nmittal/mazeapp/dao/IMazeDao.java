@@ -4,7 +4,7 @@ import com.nmittal.maze.domain.IMaze;
 
 public interface IMazeDao {
 
-	IMaze createMaze();
+	IMaze createMaze(int rows, int cols);
 
 	IMaze getMaze(long mazeId);
 

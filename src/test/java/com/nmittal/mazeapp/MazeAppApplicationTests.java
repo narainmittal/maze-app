@@ -15,6 +15,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.nmittal.mazeapp.domain.MazeGrid;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class MazeAppApplicationTests {
@@ -53,6 +55,13 @@ public class MazeAppApplicationTests {
 	public void testMazeSolveWithAlgorithm() {
 		ResponseEntity<String> response = restTemplate.getForEntity("/maze-solution/0/solve?algorithm=DFS",
 				String.class);
+		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+		assertThat(response.getBody()).isNotEmpty();
+	}
+
+	@Test
+	public void testCreateMaze() {
+		ResponseEntity<String> response = restTemplate.postForEntity("/maze", new MazeGrid(6, 6), String.class);
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 		assertThat(response.getBody()).isNotEmpty();
 	}

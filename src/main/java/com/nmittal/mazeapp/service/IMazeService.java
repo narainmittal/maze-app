@@ -8,6 +8,8 @@ import com.nmittal.mazeapp.domain.SolutionAlgorithms;
 
 public interface IMazeService {
 
+	IMaze createMaze(int rows, int cols);
+
 	IMaze getMaze(long mazeId);
 
 	Set<Block> solveMaze(long mazeId, SolutionAlgorithms algorithm);

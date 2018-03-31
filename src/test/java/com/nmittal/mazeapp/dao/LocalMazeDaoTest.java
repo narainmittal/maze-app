@@ -11,6 +11,8 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.nmittal.maze.domain.IMaze;
+
 @SpringBootTest(webEnvironment = WebEnvironment.NONE)
 @RunWith(SpringRunner.class)
 public class LocalMazeDaoTest {
@@ -28,7 +30,7 @@ public class LocalMazeDaoTest {
 
 	@Test
 	public void testCreate() {
-		assertThat(mazeDao.createMaze()).isNotNull().hasFieldOrProperty("blocks").hasFieldOrProperty("start")
+		assertThat(mazeDao.createMaze(6, 6)).isNotNull().hasFieldOrProperty("blocks").hasFieldOrProperty("start")
 				.hasFieldOrProperty("end");
 
 	}
@@ -37,6 +39,15 @@ public class LocalMazeDaoTest {
 	public void testGet() {
 		assertThat(mazeDao.getMaze(0)).isNotNull().hasFieldOrProperty("blocks").hasFieldOrProperty("start")
 				.hasFieldOrProperty("end");
+
+	}
+
+	@Test
+	public void testAndGetShouldBeSame() {
+		IMaze mazeCreated = mazeDao.createMaze(6, 6);
+		IMaze mazeGet = mazeDao.getMaze(0);
+
+		assertThat(mazeCreated).isEqualTo(mazeGet);
 
 	}
 

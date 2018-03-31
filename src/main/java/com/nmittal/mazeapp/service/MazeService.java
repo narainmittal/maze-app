@@ -43,4 +43,9 @@ public class MazeService implements IMazeService {
 		return SolutionAlgorithms.values();
 	}
 
+	@Override
+	public IMaze createMaze(int rows, int cols) {
+		return mazeDao.createMaze(rows, cols);
+	}
+
 }
