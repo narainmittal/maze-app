@@ -9,14 +9,11 @@ buildscript {
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-		//classpath("com.nmittal:maze:${mazeVersion}")
 	}
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
-
 
 group = 'com.nmittal'
 version = '1.0.0'
@@ -27,8 +24,10 @@ repositories {
 	mavenLocal()
 }
 
-task run(dependsOn: ':bootRun') << {
-    println 'Boot'
+task run(dependsOn: ':bootRun') {
+	doLast{
+   	 println 'Boot'
+    }
 }
 
 dependencies {
@@ -36,7 +35,5 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.apache.commons:commons-lang3:3.7')
 	compile('org.apache.commons:commons-collections4:4.1')
-	//compile("com.nmittal:maze:${mazeVersion}")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
-	//testCompile('com.nmittal:maze:${mazeVersion}')
 }

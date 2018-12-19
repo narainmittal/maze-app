@@ -3,10 +3,10 @@ A Spring Boot app for the maze project. This project provides REST api around th
 
 This app is live at https://rest-mazeapp.wedeploy.io/maze-app/health
 
-## Running the app locally
+## Running the Spring Boot app locally
 Execute below command
 ```
-./gradlew bootRun
+./gradlew run
 ```
 
 Once the startup is complete, you can test the application health by below URL in browser or CURL
