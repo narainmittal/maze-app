@@ -1,8 +1,6 @@
 # maze-app
 A Spring Boot app for the maze project. This project provides REST api around the Maze operations for create, solve, algorithms etc.
 
-This app is live at https://rest-mazeapp.wedeploy.io/maze-app/health
-
 ## Running the Spring Boot app locally
 Execute below command
 ```
